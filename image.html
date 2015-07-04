@@ -3,6 +3,14 @@
 <head>
 	<!-- Latest compiled and minified CSS -->
 	<!-- <link rel="stylesheet" type="text/css" href="image.css"> -->
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
 
 	<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
@@ -11,13 +19,13 @@
 	<div class="pic-select" >
 		<!-- <img src="0.jpg" id="selected-pic" onclick="f()"> -->
 		<label for="profilePhotoFileUpload0">
-			<img src="p.png" class="up" id="selected-pic0" width="200px" height="200px">
+			<img src="p.png" class="up" id="selected-pic0" width="400px" height="400px">
 		</label>
 		<input type="file"  id="profilePhotoFileUpload0"  name="img" onchange="previewImage(0);" style="display:none;" accept="image/*">
 	<!-- </div> -->
 	<!-- <div class="pic-select"> -->
 		<label for="profilePhotoFileUpload1">
-			<img src="p.png" class="up" id="selected-pic1" width="200px"  height="200px">
+			<img src="p.png" class="up" id="selected-pic1" width="400px" height="400px">
 		</label>
 		<input type="file"  id="profilePhotoFileUpload1"  name="img" onchange="previewImage(1);" style="display:none;" accept="image/*">
 		<!-- <img src="0.jpg" id="selected-pic1" > -->
@@ -25,13 +33,13 @@
 	<!-- </div> -->
 	<!-- <div class="pic-select"> -->
 		<label for="profilePhotoFileUpload2">
-			<img src="p.png" class="up" id="selected-pic2" width="200px"  height="200px">
+			<img src="p.png" class="up" id="selected-pic2" width="400px" height="400px">
 		</label>
 		<input type="file"  id="profilePhotoFileUpload2"  name="img" onchange="previewImage(2);" style="display:none;" accept="image/*">
 		<!-- <img src="0.jpg" id="selected-pic2"> -->
 
 	</div>
-	<button onclick="submit()">submit</button>
+	<button onclick="submit()" class="btn btn-primary" style="margin:50px;">submit</button>
 	<script type="text/javascript">
 		Parse.initialize("QjdehMNJpHm3oPhLP5sB4W6RFU4nsWnXJGXaw5nO", "t733V304NxKk6xmdZKXLopqNOc2NKVnLLLWQioEj");
 		function submit(){
@@ -55,17 +63,17 @@
 				var parseFile2 = new Parse.File(name2, file2);
 			}
 			parseFile0.save({pic0:name0}).then(function() {
-				// alert("save picture success");
+				alert("save picture success");
 			}, function(error) {
 				alert("can't save picture")
 			});
 			parseFile1.save({pic1:name1}).then(function() {
-				// alert("save picture success");
+				alert("save picture success");
 			}, function(error) {
 				alert("can't save picture")
 			});
 			parseFile2.save({pic2:name2}).then(function() {
-				// alert("save picture success");
+				alert("save picture success");
 			}, function(error) {
 				alert("can't save picture")
 			});
