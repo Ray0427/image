@@ -17,7 +17,7 @@ $(function() {
         range: "min",
         value: 30,
         min: 1,
-        max: 100,
+        max: 300,
         slide: function(event, ui) {
             $("#jpeg_encode_quality").val(ui.value);
         }
@@ -145,9 +145,9 @@ $(function() {
             image_height=$(result_image).height();
        	        
 	        if(image_width > image_height){
-	        	result_image.style.width="320px";
+	        	result_image.style.width=image_width;
 	        }else{
-	        	result_image.style.height="300px";
+	        	result_image.style.height=image_height;
 	        }
 	       result_image.style.display = "block";
 
