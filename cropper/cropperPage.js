@@ -1,4 +1,4 @@
-var DEGBUG = 1;
+var DEGBUG = 0;
 $(function () {
   'use strict';
   // Demo
@@ -30,8 +30,8 @@ $(function () {
           // autoCrop: false,
           autoCropArea: 0.8,
           dragCrop: false,
-          // movable: false,
-          // resizable: false,
+          movable: false,
+          resizable: false,
           // rotatable: false,
           // zoomable: false,
           // touchDragZoom: false,
@@ -111,14 +111,13 @@ $(function () {
 
         //
         result = $image.cropper(data.method, data.option);
+        $('.img-container').hide();
+        $('.preview').show(1000);
+
         console.log(jic.compress(result,640,height,"jpg").src);
         if (data.method === 'getCroppedCanvas') {
-          if(DEGBUG>1){
-            $('#modal-body').html(result);
-          }
-          document.getElementById('preview').src = result.toDataURL("image/jpeg", 0.6);
-          document.getElementById('preview').src = jic.compress(document.getElementById('preview'),width,height,"jpg").src;
-          
+          $('.preview').attr("src") = result.toDataURL("image/jpeg", 0.6);
+          $('.preview').attr("src") = jic.compress($('.preview').attr("src"),width,height,"jpg").src;
           document.getElementById('base64').innerText = document.getElementById('preview').src.replace(/^data:image\/(png|jpeg);base64,/, "");
         }
         //
