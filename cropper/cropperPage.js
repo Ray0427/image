@@ -1,11 +1,14 @@
+var DEGBUG = 1;
 $(function () {
   'use strict';
   // Demo
   // -------------------------------------------------------------------------
   var width = getValue('w');
   var height = getValue('h');
-  width=640;
-  height=960;
+  if(DEGBUG){
+    width=640;
+    height=960;
+  }
   console.log(width,height);
   (function () {
     var $image = $('.img-container > img'),
@@ -36,7 +39,7 @@ $(function () {
 
           // minCanvasWidth: 320,
           // minCanvasHeight: 180,
-          // minCropBoxWidth: 160,
+          // minCropBoxWidth: 480,
           // minCropBoxHeight: 90,
           // minContainerWidth: 320,
           // minContainerHeight: 180,
@@ -108,13 +111,15 @@ $(function () {
 
         //
         result = $image.cropper(data.method, data.option);
-        // console.log(jic.compress(result,640,height,"jpg").src);
+        console.log(jic.compress(result,640,height,"jpg").src);
         if (data.method === 'getCroppedCanvas') {
-          // $('#modal-body').html(result);
-          document.getElementById('b64').src = result.toDataURL("image/jpeg", 0.6);
-          document.getElementById('b64').src = jic.compress(document.getElementById('b64'),width,height,"jpg").src;
+          if(DEGBUG){
+            $('#modal-body').html(result);
+          }
+          document.getElementById('preview').src = result.toDataURL("image/jpeg", 0.6);
+          document.getElementById('preview').src = jic.compress(document.getElementById('preview'),width,height,"jpg").src;
           
-          document.getElementById('base64').innerText = document.getElementById('b64').src.replace(/^data:image\/(png|jpeg);base64,/, "");
+          document.getElementById('base64').innerText = document.getElementById('preview').src.replace(/^data:image\/(png|jpeg);base64,/, "");
         }
         //
 

@@ -12,11 +12,11 @@
   margin-bottom: 20px;
 }
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .img-container {
     min-height: 466px;
   }
-}
+}*/
 
 .img-container > img {
   max-width: 100%;
