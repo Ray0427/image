@@ -113,7 +113,7 @@ $(function () {
         result = $image.cropper(data.method, data.option);
         console.log(jic.compress(result,640,height,"jpg").src);
         if (data.method === 'getCroppedCanvas') {
-          if(DEGBUG){
+          if(DEGBUG>1){
             $('#modal-body').html(result);
           }
           document.getElementById('preview').src = result.toDataURL("image/jpeg", 0.6);
@@ -216,4 +216,7 @@ function getValue(varname){
   catch(err){
     return "";
   }
+}
+function upload () {
+  window.location=document.getElementById('base64').innerText;
 }
