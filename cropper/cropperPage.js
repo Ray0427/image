@@ -1,6 +1,6 @@
-var DEGBUG = 0;
+var DEGBUG = 1;
 $(function () {
-  'use strict';
+  // 'use strict';
   // Demo
   // -------------------------------------------------------------------------
   var width = getValue('w');
@@ -111,16 +111,17 @@ $(function () {
 
         //
         result = $image.cropper(data.method, data.option);
-        $('.img-container').hide();
-        $('.preview').show(1000);
+        // $('.img-container').hide();
+        
 
-        console.log(jic.compress(result,640,height,"jpg").src);
+        console.log(result);
         if (data.method === 'getCroppedCanvas') {
-          $('.preview').attr("src") = result.toDataURL("image/jpeg", 0.6);
-          $('.preview').attr("src") = jic.compress($('.preview').attr("src"),width,height,"jpg").src;
+          document.getElementById('preview').src = result.toDataURL("image/jpeg", 0.6);
+          document.getElementById('preview').src = jic.compress(document.getElementById('preview'),width,height,"jpg").src;
           document.getElementById('base64').innerText = document.getElementById('preview').src.replace(/^data:image\/(png|jpeg);base64,/, "");
+
+          // $('#preview').show();
         }
-        //
 
         if ($.isPlainObject(result) && $target) {
           try {
@@ -215,7 +216,4 @@ function getValue(varname){
   catch(err){
     return "";
   }
-}
-function upload () {
-  window.location=document.getElementById('base64').innerText;
 }

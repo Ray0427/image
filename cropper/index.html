@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="cropper.css">
 	<link rel="stylesheet" type="text/css" href="cropperPage.css">
-	<script type="text/javascript" src="jquery.min.js"></script>
 
 </head>
 <body>
@@ -16,26 +15,28 @@
 	<div class="col-md-1 col-sm-1"></div>
 	<div class="col-md-6 col-sm-6">
 
-		<img class="preview" src="picture.jpg" style="display:none; width:100%; max-height:466px;">
+		<img id="preview" src="picture.jpg" style="display:none; width:100%; max-height:466px;">
 		<div class="img-container" >
-			<img src="picture.jpg" alt="Picture">
+			<img src="" alt="Picture">
 		</div>
-		<input type="file" accept="image/*" id="inputImage">
-		<button data-method="getCroppedCanvas" type="button">擷取</button>
-		<button onclick="upload()">確認</button>
+		<label for="inputImage">
+			<img src="">選擇照片
+		</label>
+		<input type="file" accept="image/*" id="inputImage" style="display:none;" >
+		<button type="button" onclick="">取消</button>
+		<button data-method="getCroppedCanvas" type="button">確認</button>
 		<label id="base64" style=" word-wrap: break-word; word-break: normal; display:none;">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
 	</div>
-	
+		<script type="text/javascript" src="jquery.min.js"></script>
+
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="JIC.js"></script>
 	<script type="text/javascript" src="cropper.js"></script>
 	<script type="text/javascript" src="cropperPage.js"></script>
-<script>
+	<script>
 		$('docoment').ready(function(){
-			console.log(0);
-			// $('#inputImage').click();
 			document.getElementById('inputImage').click();
-		});
+		});		
 	</script>
 </body>
 </html>
