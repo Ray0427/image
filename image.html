@@ -15,6 +15,8 @@
 	<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 </head>
 <body>
+<textarea draggable="false" rows="13" cols="1" style="-webkit-writing-mode: vertical-lr ; 
+writing-mode: vertical-lr ;"></textarea>
 	<div class="pic-select" >
 		<!-- <img src="0.jpg" id="selected-pic" onclick="f()"> -->
 		<label for="profilePhotoFileUpload0">
@@ -78,6 +80,10 @@
 			});
 			var iObject= Parse.Object.extend("i");
 			var IObject= new iObject();
+// 			var acl = new Parse.ACL();
+// acl.setPublicReadAccess(false);
+// IObject.setACL(acl);
+			
 			IObject.set("pic0", parseFile0);
 			IObject.set("pic1", parseFile1);
 			IObject.set("pic2", parseFile2);

@@ -4,6 +4,7 @@ objectId = getValue("id")
 
 var IObject = Parse.Object.extend("i");
 var query = new Parse.Query(IObject);
+
 query.equalTo("objectId",objectId);
 query.find({
 	success: function(results) {
@@ -18,6 +19,7 @@ query.find({
 		}
 	},
 	error: function(error) {
+		console.log(error);
 	}
 });
 
